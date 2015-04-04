@@ -29,7 +29,11 @@ class KaggleWord2VecUtility(object):
         #
         # 4. Optionally remove stop words (false by default)
         if remove_stopwords:
-            stops = set(stopwords.words("english"))
+            stops=set()
+            file=open('stopwords/english','r')
+            for line in file:
+                stops.add(line)
+            # stops = set(stopwords.words("english"))
             words = [w for w in words if not w in stops]
         #
         # 5. Return a list of words
